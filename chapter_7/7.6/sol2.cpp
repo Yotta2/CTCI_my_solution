@@ -45,7 +45,7 @@ class KeyHash
 {
 public:
     size_t operator () (const Line &line) const {
-        return (hash<int>() ((int)line.k)) ^ (hash<int>() ((int)line.b));
+        return (hash<int>()((int)line.k)) ^ (hash<int>()((int)line.b));
     }
 };
 
@@ -98,6 +98,9 @@ int main() {
         fout << "k = infinite, a = " << ans.b << endl;
     else
         fout << "k = " << ans.k << " b = " << ans.b << endl;
-    //cout << KeyHash() ans << endl;
+    KeyHash t;
+    cout << t(ans) << endl;
+    cout << t.operator()(ans) << endl;
+    cout << KeyHash()(ans) << endl;
     return 0;
 }
